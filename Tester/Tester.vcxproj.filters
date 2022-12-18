@@ -10,6 +10,9 @@
     <ClCompile Include="03_단위_테스트구조.cpp">
       <Filter>03.단위 테스트구조</Filter>
     </ClCompile>
+    <ClCompile Include="04_좋은_단위_테스트.cpp">
+      <Filter>04.좋은 단위 테스트의 4대 요소</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -20,6 +23,9 @@
     </Filter>
     <Filter Include="03.단위 테스트구조">
       <UniqueIdentifier>{a4e1dd85-bb9c-45c9-a15d-0045b7a4e291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.좋은 단위 테스트의 4대 요소">
+      <UniqueIdentifier>{f6ee411e-f4da-4691-8160-b6943020a653}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
