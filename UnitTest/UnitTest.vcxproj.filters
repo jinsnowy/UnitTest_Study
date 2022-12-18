@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{c6dde3ed-30d7-423b-b440-8f731e69181b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.단위 테스트란">
+      <UniqueIdentifier>{1267544a-3db0-4928-91e1-0a63f8a40f9b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="02_단위_테스트란\Customer.h">
+      <Filter>02.단위 테스트란</Filter>
+    </ClInclude>
+    <ClInclude Include="02_단위_테스트란\Product.h">
+      <Filter>02.단위 테스트란</Filter>
+    </ClInclude>
+    <ClInclude Include="02_단위_테스트란\Store.h">
+      <Filter>02.단위 테스트란</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="02_단위_테스트란\Customer.cpp">
+      <Filter>02.단위 테스트란</Filter>
+    </ClCompile>
+    <ClCompile Include="02_단위_테스트란\Store.cpp">
+      <Filter>02.단위 테스트란</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="02_단위_테스트란.cpp">
+      <Filter>02.단위 테스트란</Filter>
+    </ClCompile>
+    <ClCompile Include="MockStore.cpp">
+      <Filter>02.단위 테스트란</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="MockStore.h">
+      <Filter>02.단위 테스트란</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="02.단위 테스트란">
+      <UniqueIdentifier>{2bc9ceee-5fe0-454d-be0b-73952a6ee89b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
