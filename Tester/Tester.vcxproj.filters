@@ -5,19 +5,24 @@
     <ClCompile Include="02_단위_테스트란.cpp">
       <Filter>02.단위 테스트란</Filter>
     </ClCompile>
-    <ClCompile Include="MockStore.cpp">
-      <Filter>02.단위 테스트란</Filter>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gtest\gtest-all.cc" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\lib\native\src\gmock\gmock-all.cc" />
+    <ClCompile Include="03_단위_테스트구조.cpp">
+      <Filter>03.단위 테스트구조</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="MockStore.h">
-      <Filter>02.단위 테스트란</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="02.단위 테스트란">
       <UniqueIdentifier>{2bc9ceee-5fe0-454d-be0b-73952a6ee89b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03.단위 테스트구조">
+      <UniqueIdentifier>{a4e1dd85-bb9c-45c9-a15d-0045b7a4e291}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
