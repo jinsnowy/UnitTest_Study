@@ -10,6 +10,9 @@
     <Filter Include="04.목과 테스트 취약성">
       <UniqueIdentifier>{7938e05a-2f6a-4063-8fce-f260231088ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="06.단위 테스트 스타일">
+      <UniqueIdentifier>{466f3455-df8b-4c23-a0b6-14f81ec6a75d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -30,6 +33,15 @@
     <ClInclude Include="04_목과_테스트_취약성\EmailGateway.h">
       <Filter>04.목과 테스트 취약성</Filter>
     </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\AuditManager.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\IFileSystem.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\FileSystem.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -49,6 +61,15 @@
     </ClCompile>
     <ClCompile Include="04_목과_테스트_취약성\EmailGateway.cpp">
       <Filter>04.목과 테스트 취약성</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\AuditManager.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\IFileSystem.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\FileSystem.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

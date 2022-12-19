@@ -25,6 +25,12 @@
     <ClCompile Include="MockDatabase.cpp">
       <Filter>Mock</Filter>
     </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="MockFileSystem.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -35,6 +41,9 @@
       <Filter>Mock</Filter>
     </ClInclude>
     <ClInclude Include="MockDatabase.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="MockFileSystem.h">
       <Filter>Mock</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,6 +62,9 @@
     </Filter>
     <Filter Include="Mock">
       <UniqueIdentifier>{af193285-007d-4485-87ec-41df3936c77b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="06.단위 테스트 스타일">
+      <UniqueIdentifier>{7fdd02d9-440d-4bab-8a93-fe81f8777b74}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

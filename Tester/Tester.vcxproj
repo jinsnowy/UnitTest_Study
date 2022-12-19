@@ -35,6 +35,7 @@
   <ItemGroup>
     <ClInclude Include="MockDatabase.h" />
     <ClInclude Include="MockEmailGateway.h" />
+    <ClInclude Include="MockFileSystem.h" />
     <ClInclude Include="MockStore.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
@@ -43,8 +44,10 @@
     <ClCompile Include="03_단위_테스트구조.cpp" />
     <ClCompile Include="04_좋은_단위_테스트.cpp" />
     <ClCompile Include="05_목과_테스트_취약성.cpp" />
+    <ClCompile Include="06_단위_테스트_스타일.cpp" />
     <ClCompile Include="MockDatabase.cpp" />
     <ClCompile Include="MockEmailGateway.cpp" />
+    <ClCompile Include="MockFileSystem.cpp" />
     <ClCompile Include="MockStore.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -92,12 +95,13 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>$(SolutionDir)UnitTest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)UnitTest\obj\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

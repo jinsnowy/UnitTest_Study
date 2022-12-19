@@ -27,8 +27,11 @@
 #include <type_traits>
 #include <chrono>
 #include <random>
+#include <filesystem>
+#include <format>
 
 using namespace std;
+namespace fs = std::filesystem;
 
 #include <windows.h>
 #include <WinSock2.h>
