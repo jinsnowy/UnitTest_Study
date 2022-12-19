@@ -13,9 +13,30 @@
     <ClCompile Include="04_좋은_단위_테스트.cpp">
       <Filter>04.좋은 단위 테스트의 4대 요소</Filter>
     </ClCompile>
+    <ClCompile Include="05_목과_테스트_취약성.cpp">
+      <Filter>05.목과 테스트 취약성</Filter>
+    </ClCompile>
+    <ClCompile Include="MockEmailGateway.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="MockStore.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
+    <ClCompile Include="MockDatabase.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="MockEmailGateway.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="MockStore.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="MockDatabase.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="02.단위 테스트란">
@@ -26,6 +47,12 @@
     </Filter>
     <Filter Include="04.좋은 단위 테스트의 4대 요소">
       <UniqueIdentifier>{f6ee411e-f4da-4691-8160-b6943020a653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.목과 테스트 취약성">
+      <UniqueIdentifier>{f131828d-f55a-4138-a74c-aa65aedca772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mock">
+      <UniqueIdentifier>{af193285-007d-4485-87ec-41df3936c77b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

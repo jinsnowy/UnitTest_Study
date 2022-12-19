@@ -31,3 +31,6 @@ using namespace std;
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
+
+using ::testing::Return;
+using ::testing::_;

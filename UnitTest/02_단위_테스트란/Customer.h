@@ -5,6 +5,9 @@ class Store;
 class Customer
 {
 public:
+	string emailAddress = "customer@email.com";
+
+public:
 	Customer();
 
 	virtual ~Customer();

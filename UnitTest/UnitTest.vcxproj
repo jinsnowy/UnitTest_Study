@@ -135,11 +135,15 @@
     <ClInclude Include="02_단위_테스트란\Customer.h" />
     <ClInclude Include="02_단위_테스트란\Product.h" />
     <ClInclude Include="02_단위_테스트란\Store.h" />
+    <ClInclude Include="04_목과_테스트_취약성\Database.h" />
+    <ClInclude Include="04_목과_테스트_취약성\EmailGateway.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="02_단위_테스트란\Customer.cpp" />
     <ClCompile Include="02_단위_테스트란\Store.cpp" />
+    <ClCompile Include="04_목과_테스트_취약성\Database.cpp" />
+    <ClCompile Include="04_목과_테스트_취약성\EmailGateway.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

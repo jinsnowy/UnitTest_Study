@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "02_단위_테스트란/Customer.h"
 #include "02_단위_테스트란/Store.h"
+#include "MockStore.h"
 
 TEST(상점_시나리오_고전파, 여유있는_인벤_구매_성공) {
 	// given
@@ -30,19 +31,6 @@ TEST(상점_시나리오_고전파, 빈약한_인벤_구매_실패) {
 	ASSERT_EQ(10, store.GetInventory(Product::Shampoo));
 }
 
-class MockStore : public Store
-{
-public:
-	MOCK_METHOD(void, AddInventory, (Product, int), (override));
-
-	MOCK_METHOD(int, GetInventory, (Product), (override));
-
-	MOCK_METHOD(bool, HasEnoughInventory, (Product, int), (override));
-
-	MOCK_METHOD(void, RemoveInventory, (Product, int), (override));
-};
-
-using ::testing::Return;
 
 TEST(상점_시나리오_런던파, 여유있는_인벤_구매_성공) {
 	// given
