@@ -42,6 +42,18 @@
     <ClInclude Include="06_단위_테스트_스타일\FileSystem.h">
       <Filter>06.단위 테스트 스타일</Filter>
     </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\AuditManager2.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\Persister.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\FileStruct.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
+    <ClInclude Include="06_단위_테스트_스타일\ApplicationService.h">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -69,6 +81,15 @@
       <Filter>06.단위 테스트 스타일</Filter>
     </ClCompile>
     <ClCompile Include="06_단위_테스트_스타일\FileSystem.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\AuditManager2.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\Persister.cpp">
+      <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="06_단위_테스트_스타일\ApplicationService.cpp">
       <Filter>06.단위 테스트 스타일</Filter>
     </ClCompile>
   </ItemGroup>

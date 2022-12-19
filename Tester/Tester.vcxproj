@@ -101,7 +101,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)UnitTest\obj\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;AuditManager2.obj;Persister.obj;ApplicationService.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
