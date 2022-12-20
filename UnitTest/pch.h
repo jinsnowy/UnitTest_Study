@@ -29,6 +29,11 @@
 #include <random>
 #include <filesystem>
 #include <format>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#include <set>
+#include <unordered_set>
 
 using namespace std;
 namespace fs = std::filesystem;

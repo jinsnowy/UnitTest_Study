@@ -16,9 +16,13 @@ public:
 	UserType _type;
 
 public:
+	User(string email, UserType type);
+
 	User(int userId, string email, UserType type);
 
 	bool isEmailEquals(string email);
+
+	static User CreateUser(string email, UserType type);
 
 	static User CreateUser(int userId, string email, UserType type);
 

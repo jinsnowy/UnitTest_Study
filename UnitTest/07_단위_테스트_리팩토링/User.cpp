@@ -2,6 +2,12 @@
 #include "User.h"
 #include "Company.h"
 
+User::User(string email, UserType type)
+	:
+	_email(email), _type(type)
+{
+}
+
 User::User(int userId, std::string email, UserType type)
 	:
 	_userId(userId), _email(email), _type(type)
@@ -10,6 +16,11 @@ User::User(int userId, std::string email, UserType type)
 bool User::isEmailEquals(string email)
 {
 	return _email == email;
+}
+
+User User::CreateUser(string email, UserType type)
+{
+	return User(email, type);
 }
 
 User User::CreateUser(int userId, string email, UserType type)

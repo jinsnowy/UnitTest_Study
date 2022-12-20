@@ -7,6 +7,8 @@ public:
 	int _numberOfEmployees;
 
 public:
+	Company();
+
 	Company(string domainName, int numberOfEmployees);
 
 	static Company CreateCompany(string domainName, int numberOfEmployees);

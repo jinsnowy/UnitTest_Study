@@ -1,29 +1,42 @@
 #include "pch.h"
 #include "UserController.h"
+#include "Application.h"
+#include "User.h"
+#include "Company.h"
+
+UserController::UserController() {
+	_database = new Database();
+	_messageBus = new MessageBus();
+}
+
+UserController::UserController(Database* database, MessageBus* messageBus) {
+	_database = database;
+	_messageBus = messageBus;
+}
 
 void UserController::ChangeEmailV1(int userId, string newEmail)
 {
-	auto data = _database.GetUserId(userId);
+	auto data = _database->GetUser(userId);
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
 
 	User user = User(userId, email, type);
 
-	auto companyData = _database.GetCompany();
+	auto companyData = _database->GetCompany();
 	string companyDomainName = std::get<0>(companyData);
 	int numberOfEmployees = std::get<1>(companyData);
 
 	int newNumberOfEmployees = user.ChangeEmailV1(newEmail, companyDomainName, numberOfEmployees);
 
-	_database.SaveCompany(newNumberOfEmployees);
-	_database.SaveUser(user);
-	_messageBus.SendEmailChangedMessage(userId, newEmail);
+	_database->SaveCompany(newNumberOfEmployees);
+	_database->SaveUser(user);
+	_messageBus->SendEmailChangedMessage(userId, newEmail);
 }
 
 bool UserController::ChangeEmailV2(int userId, string newEmail)
 {
-	auto data = _database.GetUserId(userId);
-	auto companyData = _database.GetCompany();
+	auto data = _database->GetUser(userId);
+	auto companyData = _database->GetCompany();
 
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
@@ -36,10 +49,9 @@ bool UserController::ChangeEmailV2(int userId, string newEmail)
 
 	bool isSuccess = user.ChangeEmailV2(newEmail, company);
 	if (isSuccess) {
-		_database.SaveCompany(company);
-		_database.SaveUser(user);
-		_messageBus.SendEmailChangedMessage(userId, newEmail);
-
+		_database->SaveCompany(company);
+		_database->SaveUser(user);
+		_messageBus->SendEmailChangedMessage(userId, newEmail);
 	}
 	
 	return isSuccess;
@@ -47,7 +59,7 @@ bool UserController::ChangeEmailV2(int userId, string newEmail)
 
 bool UserController::ChangeEmailV3(int userId, string newEmail)
 {
-	auto data = _database.GetUserId(userId);
+	auto data = _database->GetUser(userId);
 
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
@@ -58,7 +70,7 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 		return false;
 	}
 
-	auto companyData = _database.GetCompany();
+	auto companyData = _database->GetCompany();
 
 	string companyDomainName = std::get<0>(companyData);
 	int numberOfEmployees = std::get<1>(companyData);
@@ -67,9 +79,9 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 
 	bool isSuccess = user.ChangeEmailV2(newEmail, company);
 	if (isSuccess) {
-		_database.SaveCompany(company);
-		_database.SaveUser(user);
-		_messageBus.SendEmailChangedMessage(userId, newEmail);
+		_database->SaveCompany(company);
+		_database->SaveUser(user);
+		_messageBus->SendEmailChangedMessage(userId, newEmail);
 
 	}
 

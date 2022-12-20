@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "Company.h"
 
+Company::Company()
+{
+}
+
 Company::Company(string domainName, int numberOfEmployees)
 	:
 	_domainName(domainName),

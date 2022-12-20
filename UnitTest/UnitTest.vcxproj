@@ -147,7 +147,7 @@
     <ClInclude Include="06_단위_테스트_스타일\IFileSystem.h" />
     <ClInclude Include="06_단위_테스트_스타일\Persister.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\Company.h" />
-    <ClInclude Include="07_단위_테스트_리팩토링\Component.h" />
+    <ClInclude Include="07_단위_테스트_리팩토링\Application.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\User.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\UserController.h" />
     <ClInclude Include="pch.h" />
@@ -163,6 +163,7 @@
     <ClCompile Include="06_단위_테스트_스타일\FileSystem.cpp" />
     <ClCompile Include="06_단위_테스트_스타일\IFileSystem.cpp" />
     <ClCompile Include="06_단위_테스트_스타일\Persister.cpp" />
+    <ClCompile Include="07_단위_테스트_리팩토링\Application.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\Company.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\User.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\UserController.cpp" />
