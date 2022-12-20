@@ -1,17 +1,17 @@
 #pragma once
 
-class Database;
-class MessageBus;
+class IDatabase;
+class IMessageBus;
 class UserController
 {
 private:
-	Database* _database;
-	MessageBus* _messageBus;
+	IDatabase* _database;
+	IMessageBus* _messageBus;
 
 public:
 	UserController();
 
-	UserController(Database* database, MessageBus* messageBus);
+	UserController(IDatabase* database, IMessageBus* messageBus);
 
 	void ChangeEmailV1(int userId, string newEmail);
 

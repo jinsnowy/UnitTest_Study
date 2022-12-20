@@ -19,3 +19,20 @@ void MemoryDatabase::SaveCompany(Company& company)
 {
 	companyData = make_tuple(company._domainName, company._numberOfEmployees);
 }
+
+string Format(const char* fmt, ...)
+{
+	char buff[1024];
+	memset(buff, 0, sizeof(buff));
+	va_list args;
+	va_start(args, fmt);
+	vsnprintf_s(buff, _countof(buff), _TRUNCATE, fmt, args);
+	va_end(args);
+
+	return string(buff);
+}
+
+void Logger::Log(string msg)
+{
+	std::cout << msg << endl;
+}

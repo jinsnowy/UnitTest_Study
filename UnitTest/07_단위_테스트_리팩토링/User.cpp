@@ -1,10 +1,11 @@
 #include "pch.h"
 #include "User.h"
 #include "Company.h"
+#include "DomainEvent.h"
 
 User::User(string email, UserType type)
 	:
-	_email(email), _type(type)
+	_userId(-1), _email(email), _type(type)
 {
 }
 
@@ -67,4 +68,31 @@ bool User::ChangeEmailV2(string newEmail, Company& company)
 	_type = newType;
 
 	return true;
+}
+
+bool User::ChangeEmailV3(string newEmail, Company& company, IMessageBus* messageBus)
+{
+	if (newEmail == _email) {
+		return false;
+	}
+
+	UserType newType = company.IsEmailCorporate(newEmail) ? UserType::Employee : UserType::Customer;
+
+	if (newType != _type) {
+		int delta = newType == UserType::Employee ? 1 : -1;
+		company.ChangeNumberOfEmployees(delta);
+		AddDomainEvent(new UpdateUserTypeEvent(_userId, _type, newType));
+	}
+
+	_email = newEmail;
+	_type = newType;
+
+	AddDomainEvent(new UpdateUserEmailEvent(messageBus, _userId, _email));
+
+	return true;
+}
+
+void User::AddDomainEvent(DomainEvent* domainEvent)
+{
+	_domainEvents.push_back(domainEvent);
 }

@@ -3,13 +3,14 @@
 #include "Application.h"
 #include "User.h"
 #include "Company.h"
+#include "DomainEvent.h"
 
 UserController::UserController() {
-	_database = new Database();
+	_database = new NullDatabase();
 	_messageBus = new MessageBus();
 }
 
-UserController::UserController(Database* database, MessageBus* messageBus) {
+UserController::UserController(IDatabase* database, IMessageBus* messageBus) {
 	_database = database;
 	_messageBus = messageBus;
 }
@@ -77,11 +78,15 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 
 	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
 
-	bool isSuccess = user.ChangeEmailV2(newEmail, company);
+	bool isSuccess = user.ChangeEmailV3(newEmail, company, _messageBus);
 	if (isSuccess) {
 		_database->SaveCompany(company);
 		_database->SaveUser(user);
-		_messageBus->SendEmailChangedMessage(userId, newEmail);
+
+		for (auto& domainEvent : user._domainEvents) {
+			domainEvent->Execute();
+			delete domainEvent;
+		}
 	}
 
 	return isSuccess;

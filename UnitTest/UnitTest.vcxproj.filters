@@ -69,6 +69,9 @@
     <ClInclude Include="07_단위_테스트_리팩토링\Company.h">
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\DomainEvent.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -117,6 +120,9 @@
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
     <ClCompile Include="07_단위_테스트_리팩토링\Application.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\DomainEvent.cpp">
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
   </ItemGroup>
