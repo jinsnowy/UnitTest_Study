@@ -12,7 +12,7 @@ void MemoryDatabase::SaveUser(User& user)
 		user._userId = ++userIdGen;
 	}
 
-	userData[user._userId] = make_tuple(user._email, user._userId);
+	userData[user._userId] = make_tuple(user._email, (int)user._type);
 }
 
 void MemoryDatabase::SaveCompany(Company& company)

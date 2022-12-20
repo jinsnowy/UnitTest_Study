@@ -82,7 +82,6 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 		_database->SaveCompany(company);
 		_database->SaveUser(user);
 		_messageBus->SendEmailChangedMessage(userId, newEmail);
-
 	}
 
 	return isSuccess;

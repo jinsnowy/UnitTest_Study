@@ -34,6 +34,12 @@
     <ClCompile Include="07_단위_테스트_리팩토링.cpp">
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
+    <ClCompile Include="08_통합_테스트를_하는_이유.cpp">
+      <Filter>08.통합 테스트를 하는 이유</Filter>
+    </ClCompile>
+    <ClCompile Include="MockMessageBus.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -47,6 +53,9 @@
       <Filter>Mock</Filter>
     </ClInclude>
     <ClInclude Include="MockFileSystem.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="MockMessageBus.h">
       <Filter>Mock</Filter>
     </ClInclude>
   </ItemGroup>
@@ -71,6 +80,9 @@
     </Filter>
     <Filter Include="07.단위 테스트 리팩토링">
       <UniqueIdentifier>{1491c93e-0e3b-44fe-9f65-16ca44e1ac17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08.통합 테스트를 하는 이유">
+      <UniqueIdentifier>{f1920379-56ed-47ef-8dbb-40e899aaa134}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
