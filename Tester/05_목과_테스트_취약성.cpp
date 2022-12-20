@@ -94,17 +94,17 @@ public:
 
 TEST(TestCusotmerController, 충분한_인벤_구매_성공_그리고_영수증_발행) {
 	// given
-	MockStore store = {};
+	Store store = {};
+	store.AddInventory(Product::Shampoo, 5);
+
 	MockEmailGateway gateway = {};
 	CustomerController sut(store, gateway);
-
-	ON_CALL(store, HasEnoughInventory(Product::Shampoo, 5))
-		.WillByDefault(Return(true));
 	
 	EXPECT_CALL(gateway, SendReceipt("customer@email.com", "Shampoo", 5)).Times(1);
 
 	// when
 	bool isSuccess = sut.Purchase(1, (int)Product::Shampoo, 5);
 
+	// then
 	ASSERT_TRUE(isSuccess);
 }
