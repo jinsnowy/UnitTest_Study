@@ -31,6 +31,9 @@
     <ClCompile Include="MockFileSystem.cpp">
       <Filter>Mock</Filter>
     </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -65,6 +68,9 @@
     </Filter>
     <Filter Include="06.단위 테스트 스타일">
       <UniqueIdentifier>{7fdd02d9-440d-4bab-8a93-fe81f8777b74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07.단위 테스트 리팩토링">
+      <UniqueIdentifier>{1491c93e-0e3b-44fe-9f65-16ca44e1ac17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

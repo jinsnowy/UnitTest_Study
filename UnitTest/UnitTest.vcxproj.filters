@@ -13,6 +13,9 @@
     <Filter Include="06.단위 테스트 스타일">
       <UniqueIdentifier>{466f3455-df8b-4c23-a0b6-14f81ec6a75d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="07.단위 테스트 리팩토링">
+      <UniqueIdentifier>{6143f076-f0c7-499f-b72a-27d0817c4c38}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -54,6 +57,18 @@
     <ClInclude Include="06_단위_테스트_스타일\ApplicationService.h">
       <Filter>06.단위 테스트 스타일</Filter>
     </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\UserController.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\User.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\Component.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\Company.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -91,6 +106,15 @@
     </ClCompile>
     <ClCompile Include="06_단위_테스트_스타일\ApplicationService.cpp">
       <Filter>06.단위 테스트 스타일</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\UserController.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\User.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\Company.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -35,3 +35,5 @@ namespace fs = std::filesystem;
 
 #include <windows.h>
 #include <WinSock2.h>
+
+vector<string> Split(string s, string delimiter);
