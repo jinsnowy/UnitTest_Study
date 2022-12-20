@@ -74,6 +74,3 @@ class Logger : public ILogger, public Singleton<Logger> {
 public:
 	virtual void Log(string msg) override;
 };
-
-string Format(const char* fmt, ...);
-

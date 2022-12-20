@@ -42,3 +42,4 @@ namespace fs = std::filesystem;
 #include <WinSock2.h>
 
 vector<string> Split(string s, string delimiter);
+string Format(const char* fmt, ...);
