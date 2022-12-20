@@ -9,7 +9,7 @@ public:
 	Database() {}
 	Database(string) {}
 
-	virtual DataType GetUser(int userId) { return {}; }
+	virtual DataType GetUserById(int userId) { return {}; }
 	virtual DataType GetCompany() { return {}; }
 
 	virtual void SaveUser(User&) {};
@@ -27,7 +27,7 @@ public:
 	MemoryDatabase() {}
 	MemoryDatabase(string connString) : Database(connString) {}
 
-	virtual DataType GetUser(int userId) override { return userData[userId]; }
+	virtual DataType GetUserById(int userId) override { return userData[userId]; }
 	virtual DataType GetCompany() override { return companyData; }
 
 	virtual void SaveUser(User& user) override;

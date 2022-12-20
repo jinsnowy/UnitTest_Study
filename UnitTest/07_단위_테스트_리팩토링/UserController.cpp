@@ -16,7 +16,7 @@ UserController::UserController(Database* database, MessageBus* messageBus) {
 
 void UserController::ChangeEmailV1(int userId, string newEmail)
 {
-	auto data = _database->GetUser(userId);
+	auto data = _database->GetUserById(userId);
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
 
@@ -35,7 +35,7 @@ void UserController::ChangeEmailV1(int userId, string newEmail)
 
 bool UserController::ChangeEmailV2(int userId, string newEmail)
 {
-	auto data = _database->GetUser(userId);
+	auto data = _database->GetUserById(userId);
 	auto companyData = _database->GetCompany();
 
 	string email = std::get<0>(data);
@@ -59,7 +59,7 @@ bool UserController::ChangeEmailV2(int userId, string newEmail)
 
 bool UserController::ChangeEmailV3(int userId, string newEmail)
 {
-	auto data = _database->GetUser(userId);
+	auto data = _database->GetUserById(userId);
 
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
