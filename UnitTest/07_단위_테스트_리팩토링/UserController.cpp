@@ -4,15 +4,25 @@
 #include "User.h"
 #include "Company.h"
 #include "DomainEvent.h"
+#include "EventDispatcher.h"
 
 UserController::UserController() {
 	_database = new NullDatabase();
 	_messageBus = new MessageBus();
+	_eventDispatcher = new EventDispatcher();
 }
 
-UserController::UserController(IDatabase* database, IMessageBus* messageBus) {
+UserController::UserController(IDatabase* database, IMessageBus* messageBus)
+{
 	_database = database;
 	_messageBus = messageBus;
+	_eventDispatcher = new NullEventDispatcher();
+}
+
+UserController::UserController(IDatabase* database, IMessageBus* messageBus, IEventDispatcher* eventDispatcher) {
+	_database = database;
+	_messageBus = messageBus;
+	_eventDispatcher = eventDispatcher;
 }
 
 void UserController::ChangeEmailV1(int userId, string newEmail)
@@ -78,15 +88,44 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 
 	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
 
-	bool isSuccess = user.ChangeEmailV3(newEmail, company, _messageBus);
+	bool isSuccess = user.ChangeEmailV3(newEmail, company);
 	if (isSuccess) {
 		_database->SaveCompany(company);
 		_database->SaveUser(user);
 
 		for (auto& domainEvent : user._domainEvents) {
-			domainEvent->Execute();
+			domainEvent->Execute(_eventDispatcher);
 			delete domainEvent;
 		}
+	}
+
+	return isSuccess;
+}
+
+bool UserController::ChangeEmailV4(int userId, string newEmail)
+{
+	auto data = _database->GetUserById(userId);
+
+	string email = std::get<0>(data);
+	UserType type = (UserType)(std::get<1>(data));
+
+	User user = User::CreateUser(userId, email, type);
+	if (user.isEmailEquals(newEmail) == true) {
+		return false;
+	}
+
+	auto companyData = _database->GetCompany();
+
+	string companyDomainName = std::get<0>(companyData);
+	int numberOfEmployees = std::get<1>(companyData);
+
+	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
+
+	bool isSuccess = user.ChangeEmailV3(newEmail, company);
+	if (isSuccess) {
+		_database->SaveCompany(company);
+		_database->SaveUser(user);
+		_eventDispatcher->Dispatch(user._domainEvents);
 	}
 
 	return isSuccess;

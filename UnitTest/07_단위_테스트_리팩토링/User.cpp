@@ -70,7 +70,7 @@ bool User::ChangeEmailV2(string newEmail, Company& company)
 	return true;
 }
 
-bool User::ChangeEmailV3(string newEmail, Company& company, IMessageBus* messageBus)
+bool User::ChangeEmailV3(string newEmail, Company& company)
 {
 	if (newEmail == _email) {
 		return false;
@@ -87,7 +87,7 @@ bool User::ChangeEmailV3(string newEmail, Company& company, IMessageBus* message
 	_email = newEmail;
 	_type = newType;
 
-	AddDomainEvent(new UpdateUserEmailEvent(messageBus, _userId, _email));
+	AddDomainEvent(new UpdateUserEmailEvent(_userId, _email));
 
 	return true;
 }

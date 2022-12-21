@@ -1,16 +1,20 @@
 #include "pch.h"
 #include "DomainEvent.h"
 #include "Application.h"
+#include "EventDispatcher.h"
 
-void DomainEvent::Execute()
+void DomainEvent::Execute(IEventDispatcher* dispatcher)
 {
-	action();
+	action(dispatcher);
 }
 
-UpdateUserEmailEvent::UpdateUserEmailEvent(IMessageBus* messageBus, int userId, string email)
+UpdateUserEmailEvent::UpdateUserEmailEvent(int userId, string email)
 {
-	action = [=]() {
-		messageBus->SendEmailChangedMessage(userId, email);
+	action = [=](IEventDispatcher* dispatcher) {
+		auto _messageBus = EventHandler::GetEventHandler<IMessageBus>(dispatcher);
+		if (_messageBus) {
+			_messageBus->SendEmailChangedMessage(userId, email);
+		}
 	};
 }
 
@@ -18,7 +22,10 @@ UpdateUserTypeEvent::UpdateUserTypeEvent(int userId, UserType prev, UserType nex
 	:
 	logger(Logger::GetInstance())
 {
-	action = [=]() {
-		logger->Log(Format("UserId(%d) changed type from %d to %d", userId, (int)prev, (int)next));
+	action = [=](IEventDispatcher* dispatcher) {
+		auto _logger = EventHandler::GetEventHandler<ILogger>(dispatcher);
+		if (_logger) {
+			_logger->Log(Format("UserId(%d) changed type from %d to %d", userId, (int)prev, (int)next));
+		}
 	};
 }

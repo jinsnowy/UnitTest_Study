@@ -34,7 +34,7 @@ public:
 
 	bool ChangeEmailV2(string newEmail, Company& company);
 
-	bool ChangeEmailV3(string newEmail, Company& company, IMessageBus* messageBus);
+	bool ChangeEmailV3(string newEmail, Company& company);
 
 	void AddDomainEvent(DomainEvent* domainEvent);
 };
