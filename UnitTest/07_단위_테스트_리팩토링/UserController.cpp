@@ -91,3 +91,29 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 
 	return isSuccess;
 }
+
+void UserController::ChangeEmailV4(int userId, string newEmail)
+{
+	auto data = _database->GetUserById(userId);
+	auto companyData = _database->GetCompany();
+
+	string email = std::get<0>(data);
+	UserType type = (UserType)(std::get<1>(data));
+
+	User user = User::CreateUser(userId, email, type);
+
+	string companyDomainName = std::get<0>(companyData);
+	int numberOfEmployees = std::get<1>(companyData);
+
+	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
+
+	user.ChangeEmailV4(newEmail, company, _messageBus);
+
+	_database->SaveCompany(company);
+	_database->SaveUser(user);
+
+	for (auto& domainEvent : user._domainEvents) {
+		domainEvent->Execute();
+		delete domainEvent;
+	}
+}

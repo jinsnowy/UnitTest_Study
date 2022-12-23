@@ -18,4 +18,6 @@ public:
 	bool ChangeEmailV2(int userId, string newEmail);
 
 	bool ChangeEmailV3(int userId, string newEmail);
+
+	void ChangeEmailV4(int userId, string newEmail);
 };

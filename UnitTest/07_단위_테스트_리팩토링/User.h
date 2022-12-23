@@ -7,6 +7,14 @@ enum class UserType {
 	Customer
 };
 
+class UserEmailAddressIsSame : public std::exception {
+private:
+	std::string message;
+public:
+	UserEmailAddressIsSame(std::string emailAddress);
+	virtual const char* what() const override { return message.c_str(); }
+};
+
 class IMessageBus;
 class DomainEvent;
 class Company;
@@ -30,11 +38,17 @@ public:
 
 	bool isEmailEquals(string email);
 
+	void ChangeEmailV0(int userId, string newEmail) {}
+
 	int ChangeEmailV1(string newEmail, string companyDomainName, int numberOfEmployees);
 
 	bool ChangeEmailV2(string newEmail, Company& company);
 
 	bool ChangeEmailV3(string newEmail, Company& company, IMessageBus* messageBus);
+
+	void ChangeEmailIfValid(int userId, string newEmail);
+
+	void ChangeEmailV4(string newEmail, Company& company, IMessageBus* messageBus);
 
 	void AddDomainEvent(DomainEvent* domainEvent);
 };

@@ -19,14 +19,13 @@ TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) 
 	auto messageBusMock = new MockMessageBus();
 	auto sut = UserController(db, messageBusMock);
 
+	// check behavior of message bus
 	EXPECT_CALL(*messageBusMock, SendEmailChangedMessage(insertUser._userId, "new@gmail.com")).Times(1);
 
 	// when
-	bool isSuccess = sut.ChangeEmailV3(insertUser._userId, "new@gmail.com");
+	sut.ChangeEmailV4(insertUser._userId, "new@gmail.com");
 
 	// then
-	ASSERT_TRUE(isSuccess);
-
 	auto userData = db->GetUserById(insertUser._userId);
 	User userFromDB = User::CreateUser(insertUser._userId, std::get<0>(userData), (UserType)std::get<1>(userData));
 	ASSERT_EQ("new@gmail.com", userFromDB._email);

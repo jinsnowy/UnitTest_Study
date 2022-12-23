@@ -9,7 +9,6 @@ AuditManager2::AuditManager2(int maxEntriesPerFile)
 
 FileUpdate AuditManager2::AddRecord(vector<FileContent> files, string visitorName, string timeOfVisit)
 {
-
 	string newRecord = format("{};{}", visitorName.c_str(), timeOfVisit.c_str());
 
 	if (files.empty()) {

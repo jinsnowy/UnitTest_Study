@@ -16,6 +16,13 @@ TEST(TestUserController, 이메일_변경_외부도메인_에서_사내도메인으로) {
 	ASSERT_EQ(UserType::Employee, sut._type);
 }
 
+TEST(TestUserController, 사내_도메인_체크_유틸_테스트) {
+	auto sut = Company("mycorp.com", 1);
+	bool isCompanyDomain = sut.IsEmailCorporate("user@mycorp.com");
+
+	ASSERT_TRUE(isCompanyDomain);
+}
+
 TEST(TestUserController, 이메일_변경_사내도메인_에서_외부도메인으로) {
 	auto company = Company("mycorp.com", 2);
 	auto sut = User(1, "user@mycorp.com", UserType::Employee);
