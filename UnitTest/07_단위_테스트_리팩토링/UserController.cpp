@@ -65,7 +65,7 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
 
-	// Fast Fail Principle 빠른 실패 원칙
+	// Can Execute -> Execute 패턴
 	User user = User::CreateUser(userId, email, type);
 	if (user.isEmailEquals(newEmail) == true) {
 		return false;
@@ -107,6 +107,7 @@ void UserController::ChangeEmailV4(int userId, string newEmail)
 
 	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
 
+	// Fast Failure Principle
 	user.ChangeEmailV4(newEmail, company, _messageBus);
 
 	_database->SaveCompany(company);
