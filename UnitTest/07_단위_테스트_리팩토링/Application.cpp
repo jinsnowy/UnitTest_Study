@@ -6,7 +6,7 @@
 
 static int userIdGen = 0;
 
-void MemoryDatabase::SaveUser(User& user)
+void Database::SaveUser(User& user)
 {
 	if (userData.find(user._userId) == userData.end()) {
 		user._userId = ++userIdGen;
@@ -15,9 +15,13 @@ void MemoryDatabase::SaveUser(User& user)
 	userData[user._userId] = make_tuple(user._email, (int)user._type);
 }
 
-void MemoryDatabase::SaveCompany(Company& company)
+void Database::SaveCompany(Company& company)
 {
 	companyData = make_tuple(company._domainName, company._numberOfEmployees);
+}
+
+void Database::SaveCompany(int)
+{
 }
 
 void Logger::Log(string msg)

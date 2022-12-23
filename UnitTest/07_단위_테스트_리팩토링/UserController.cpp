@@ -6,11 +6,11 @@
 #include "DomainEvent.h"
 
 UserController::UserController() {
-	_database = new NullDatabase();
+	_database = new Database();
 	_messageBus = new MessageBus();
 }
 
-UserController::UserController(IDatabase* database, IMessageBus* messageBus) {
+UserController::UserController(Database* database, IMessageBus* messageBus) {
 	_database = database;
 	_messageBus = messageBus;
 }

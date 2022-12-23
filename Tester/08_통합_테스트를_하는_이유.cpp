@@ -9,7 +9,7 @@
 
 TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) {
 	// given
-	auto db = new MemoryDatabase(string("connection"));
+	auto db = new Database(string("connection"));
 	auto insertUser = User::CreateUser("user@mycorp.com", UserType::Employee);
 	auto insertCompany = Company::CreateCompany("mycorp.com", 1);
 

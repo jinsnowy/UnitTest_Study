@@ -4,46 +4,22 @@ using DataType = tuple<string, int>;
 
 class User;
 class Company;
-class IDatabase {
-public:
-	IDatabase() {}
-	IDatabase(string) {}
 
-	virtual DataType GetUserById(int userId) { return {}; }
-	virtual DataType GetCompany() { return {}; }
-
-	virtual void SaveUser(User&) {};
-	virtual void SaveCompany(Company&) {}
-	virtual void SaveCompany(int) {}
-};
-
-class NullDatabase : public IDatabase {
-public:
-	NullDatabase() {}
-	NullDatabase(string) {}
-
-	virtual DataType GetUserById(int userId) override { return {}; }
-	virtual DataType GetCompany() override { return {}; }
-
-	virtual void SaveUser(User&) override {};
-	virtual void SaveCompany(Company&) override {}
-	virtual void SaveCompany(int) override {}
-};
-
-class MemoryDatabase : public IDatabase {
+class Database {
 private:
 	map<int, DataType> userData;
 	DataType companyData;
 
 public:
-	MemoryDatabase() {}
-	MemoryDatabase(string connString) : IDatabase(connString) {}
+	Database() {}
+	Database(string connString)  {}
 
-	virtual DataType GetUserById(int userId) override { return userData[userId]; }
-	virtual DataType GetCompany() override { return companyData; }
+	DataType GetUserById(int userId) { return userData[userId]; }
+	DataType GetCompany() { return companyData; }
 
-	virtual void SaveUser(User& user) override;
-	virtual void SaveCompany(Company& company) override;
+	void SaveUser(User& user);
+	void SaveCompany(Company& company);
+	void SaveCompany(int);
 };
 
 template<typename T>
