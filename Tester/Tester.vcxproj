@@ -36,6 +36,7 @@
     <ClInclude Include="MockDatabase.h" />
     <ClInclude Include="MockEmailGateway.h" />
     <ClInclude Include="MockFileSystem.h" />
+    <ClInclude Include="MockLogger.h" />
     <ClInclude Include="MockMessageBus.h" />
     <ClInclude Include="MockStore.h" />
     <ClInclude Include="pch.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="MockDatabase.cpp" />
     <ClCompile Include="MockEmailGateway.cpp" />
     <ClCompile Include="MockFileSystem.cpp" />
+    <ClCompile Include="MockLogger.cpp" />
     <ClCompile Include="MockMessageBus.cpp" />
     <ClCompile Include="MockStore.cpp" />
     <ClCompile Include="pch.cpp">
@@ -105,7 +107,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)UnitTest\obj\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;AuditManager2.obj;Application.obj;Persister.obj;ApplicationService.obj;Company.obj;User.obj;UserController.obj;DomainEvent.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;AuditManager2.obj;Application.obj;Persister.obj;ApplicationService.obj;Company.obj;User.obj;UserController.obj;DomainEvent.obj;EventDispatcher.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -40,6 +40,9 @@
     <ClCompile Include="MockMessageBus.cpp">
       <Filter>Mock</Filter>
     </ClCompile>
+    <ClCompile Include="MockLogger.cpp">
+      <Filter>Mock</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -56,6 +59,9 @@
       <Filter>Mock</Filter>
     </ClInclude>
     <ClInclude Include="MockMessageBus.h">
+      <Filter>Mock</Filter>
+    </ClInclude>
+    <ClInclude Include="MockLogger.h">
       <Filter>Mock</Filter>
     </ClInclude>
   </ItemGroup>

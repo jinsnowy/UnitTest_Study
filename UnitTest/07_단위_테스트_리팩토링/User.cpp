@@ -100,7 +100,7 @@ bool User::ChangeEmailV2(string newEmail, Company& company)
 	return true;
 }
 
-bool User::ChangeEmailV3(string newEmail, Company& company, IMessageBus* messageBus)
+bool User::ChangeEmailV3(string newEmail, Company& company)
 {
 	if (newEmail == _email) {
 		return false;
@@ -111,24 +111,15 @@ bool User::ChangeEmailV3(string newEmail, Company& company, IMessageBus* message
 	if (newType != _type) {
 		int delta = newType == UserType::Employee ? 1 : -1;
 		company.ChangeNumberOfEmployees(delta);
-		AddDomainEvent(new UpdateUserTypeEvent(_userId, _type, newType));
+		// AddDomainEvent(new UpdateUserTypeEvent(_userId, _type, newType));
 	}
 
 	_email = newEmail;
 	_type = newType;
 
-	// AddDomainEvent(new UpdateUserEmailEvent(messageBus, _userId, _email));
+	// AddDomainEvent(new UpdateUserEmailEvent(_userId, _email));
 
 	return true;
-}
-
-void User::ChangeEmailIfValid(int userId, string newEmail)
-{
-	if (newEmail == _email) {
-		throw UserEmailAddressIsSame(newEmail);
-	}
-
-	// 나머지 코드 부분
 }
 
 void User::ChangeEmailV4(string newEmail, Company& company, IMessageBus* messageBus)
@@ -148,7 +139,7 @@ void User::ChangeEmailV4(string newEmail, Company& company, IMessageBus* message
 	_email = newEmail;
 	_type = newType;
 
-	AddDomainEvent(new UpdateUserEmailEvent(messageBus, _userId, _email));
+	AddDomainEvent(new UpdateUserEmailEvent(_userId, _email, messageBus));
 }
 
 void User::AddDomainEvent(DomainEvent* domainEvent)

@@ -4,15 +4,25 @@
 #include "User.h"
 #include "Company.h"
 #include "DomainEvent.h"
+#include "EventDispatcher.h"
 
 UserController::UserController() {
 	_database = new Database();
 	_messageBus = new MessageBus();
+	_eventDispatcher = new EventDispatcher();
 }
 
-UserController::UserController(Database* database, IMessageBus* messageBus) {
+UserController::UserController(Database* database, IMessageBus* messageBus)
+{
 	_database = database;
 	_messageBus = messageBus;
+	_eventDispatcher = new EventDispatcher();
+}
+
+UserController::UserController(Database* database, IMessageBus* messageBus, EventDispatcher* eventDispatcher) {
+	_database = database;
+	_messageBus = messageBus;
+	_eventDispatcher = eventDispatcher;
 }
 
 void UserController::ChangeEmailV1(int userId, string newEmail)
@@ -78,7 +88,7 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 
 	Company company = Company::CreateCompany(companyDomainName, numberOfEmployees);
 
-	bool isSuccess = user.ChangeEmailV3(newEmail, company, _messageBus);
+	bool isSuccess = user.ChangeEmailV3(newEmail, company);
 	if (isSuccess) {
 		_database->SaveCompany(company);
 		_database->SaveUser(user);
@@ -95,12 +105,12 @@ bool UserController::ChangeEmailV3(int userId, string newEmail)
 void UserController::ChangeEmailV4(int userId, string newEmail)
 {
 	auto data = _database->GetUserById(userId);
-	auto companyData = _database->GetCompany();
 
 	string email = std::get<0>(data);
 	UserType type = (UserType)(std::get<1>(data));
 
 	User user = User::CreateUser(userId, email, type);
+	auto companyData = _database->GetCompany();
 
 	string companyDomainName = std::get<0>(companyData);
 	int numberOfEmployees = std::get<1>(companyData);
@@ -112,9 +122,5 @@ void UserController::ChangeEmailV4(int userId, string newEmail)
 
 	_database->SaveCompany(company);
 	_database->SaveUser(user);
-
-	for (auto& domainEvent : user._domainEvents) {
-		domainEvent->Execute();
-		delete domainEvent;
-	}
+	_eventDispatcher->Dispatch(user._domainEvents);
 }

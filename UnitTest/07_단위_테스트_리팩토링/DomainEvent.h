@@ -1,6 +1,8 @@
 #pragma once
 #include "User.h"
 
+class ILogger;
+class IEventDispatcher;
 class DomainEvent
 {
 protected:
@@ -14,13 +16,13 @@ class IMessageBus;
 
 class UpdateUserEmailEvent : public DomainEvent {
 public:
-	UpdateUserEmailEvent(IMessageBus* messageBus, int userId, string email);
+	UpdateUserEmailEvent(int userId, string email, IMessageBus* messageBus);
 };
 
-class ILogger;
 class UpdateUserTypeEvent : public DomainEvent {
 private:
 	ILogger* logger;
+
 public:
 	UpdateUserTypeEvent(int userId, UserType prev, UserType next);
 };

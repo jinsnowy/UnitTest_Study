@@ -1,13 +1,14 @@
 #include "pch.h"
 #include "DomainEvent.h"
 #include "Application.h"
+#include "EventDispatcher.h"
 
 void DomainEvent::Execute()
 {
 	action();
 }
 
-UpdateUserEmailEvent::UpdateUserEmailEvent(IMessageBus* messageBus, int userId, string email)
+UpdateUserEmailEvent::UpdateUserEmailEvent(int userId, string email, IMessageBus* messageBus)
 {
 	action = [=]() {
 		messageBus->SendEmailChangedMessage(userId, email);

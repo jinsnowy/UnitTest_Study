@@ -4,8 +4,11 @@
 #include "07_단위_테스트_리팩토링\Company.h"
 #include "07_단위_테스트_리팩토링\UserController.h"
 #include "07_단위_테스트_리팩토링\Application.h"
+#include "07_단위_테스트_리팩토링\EventDispatcher.h"
 
+#include "MockLogger.h"
 #include "MockMessageBus.h"
+#include "CorePch.h"
 
 TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) {
 	// given
@@ -19,11 +22,10 @@ TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) 
 	auto messageBusMock = new MockMessageBus();
 	auto sut = UserController(db, messageBusMock);
 
-	// check behavior of message bus
 	EXPECT_CALL(*messageBusMock, SendEmailChangedMessage(insertUser._userId, "new@gmail.com")).Times(1);
 
 	// when
-	sut.ChangeEmailV4(insertUser._userId, "new@gmail.com");
+	bool isSuccess = sut.ChangeEmailV3(insertUser._userId, "new@gmail.com");
 
 	// then
 	auto userData = db->GetUserById(insertUser._userId);
@@ -34,4 +36,6 @@ TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) 
 	auto companyData = db->GetCompany();
 	Company companyFromDB = Company::CreateCompany(std::get<0>(companyData), std::get<1>(companyData));
 	ASSERT_EQ(0, companyFromDB._numberOfEmployees);
+
+	EventHandler::Clear();
 }
