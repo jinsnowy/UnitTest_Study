@@ -11,6 +11,7 @@ public:
 };
 
 class IMessageBus;
+
 class UpdateUserEmailEvent : public DomainEvent {
 public:
 	UpdateUserEmailEvent(IMessageBus* messageBus, int userId, string email);
