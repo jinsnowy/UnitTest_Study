@@ -49,6 +49,7 @@
     <ClCompile Include="06_단위_테스트_스타일.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링.cpp" />
     <ClCompile Include="08_통합_테스트를_하는_이유.cpp" />
+    <ClCompile Include="10_데이터베이스_테스트.cpp" />
     <ClCompile Include="MockDatabase.cpp" />
     <ClCompile Include="MockEmailGateway.cpp" />
     <ClCompile Include="MockFileSystem.cpp" />
@@ -107,7 +108,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)UnitTest\obj\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;AuditManager2.obj;Application.obj;Persister.obj;ApplicationService.obj;Company.obj;User.obj;UserController.obj;DomainEvent.obj;EventDispatcher.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>pch.obj;Customer.obj;Store.obj;Database.obj;EmailGateway.obj;AuditManager.obj;FileSystem.obj;IFileSystem.obj;AuditManager2.obj;Application.obj;Persister.obj;ApplicationService.obj;Company.obj;User.obj;UserController.obj;DomainEvent.obj;EventDispatcher.obj;Repository.obj;Transaction.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

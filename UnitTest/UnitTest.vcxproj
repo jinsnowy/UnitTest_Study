@@ -150,6 +150,8 @@
     <ClInclude Include="07_단위_테스트_리팩토링\Application.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\DomainEvent.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\EventDispatcher.h" />
+    <ClInclude Include="07_단위_테스트_리팩토링\Repository.h" />
+    <ClInclude Include="07_단위_테스트_리팩토링\Transaction.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\User.h" />
     <ClInclude Include="07_단위_테스트_리팩토링\UserController.h" />
     <ClInclude Include="CorePch.h" />
@@ -170,6 +172,8 @@
     <ClCompile Include="07_단위_테스트_리팩토링\Company.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\DomainEvent.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\EventDispatcher.cpp" />
+    <ClCompile Include="07_단위_테스트_리팩토링\Repository.cpp" />
+    <ClCompile Include="07_단위_테스트_리팩토링\Transaction.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\User.cpp" />
     <ClCompile Include="07_단위_테스트_리팩토링\UserController.cpp" />
     <ClCompile Include="main.cpp" />

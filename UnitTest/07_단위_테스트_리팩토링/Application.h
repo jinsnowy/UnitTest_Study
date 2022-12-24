@@ -5,6 +5,23 @@ using DataType = tuple<string, int>;
 class User;
 class Company;
 
+class Transaction;
+class DBConnection{
+private:
+	string connString;
+
+public:
+	DBConnection(string _connString);
+
+	Transaction* CreateTransaction();
+
+	void ExecuteNonQuery(string) {}
+
+	void Close() {}
+	void Commit() {}
+	void Rollback() {}
+};
+
 class Database {
 private:
 	map<int, DataType> userData;
@@ -12,7 +29,7 @@ private:
 
 public:
 	Database() {}
-	Database(string connString)  {}
+	Database(string connString);
 
 	DataType GetUserById(int userId) { return userData[userId]; }
 	DataType GetCompany() { return companyData; }
@@ -20,6 +37,12 @@ public:
 	void SaveUser(User& user);
 	void SaveCompany(Company& company);
 	void SaveCompany(int);
+
+private:
+	DBConnection* _conn;
+
+public:
+	DBConnection* GetConnection();
 };
 
 template<typename T>

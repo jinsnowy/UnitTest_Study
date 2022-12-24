@@ -4,7 +4,15 @@
 #include "User.h"
 #include "Company.h"
 
+#include "Transaction.h"
+
 static int userIdGen = 0;
+
+Database::Database(string connString)
+	:
+	_conn(new DBConnection(connString))
+{
+}
 
 void Database::SaveUser(User& user)
 {
@@ -24,6 +32,11 @@ void Database::SaveCompany(int)
 {
 }
 
+DBConnection* Database::GetConnection()
+{
+	return _conn;
+}
+
 void Logger::Log(string msg)
 {
 	std::cout << msg << endl;
@@ -32,4 +45,15 @@ void Logger::Log(string msg)
 void MessageBus::SendEmailChangedMessage(int userId, std::string emailAddress)
 {
 	_bus->Send(Format("user id %d changed email address to %s", userId, emailAddress.c_str()));
+}
+
+DBConnection::DBConnection(string _connString)
+	:
+	connString(_connString)
+{
+}
+
+Transaction* DBConnection::CreateTransaction()
+{
+	return new Transaction(this);
 }

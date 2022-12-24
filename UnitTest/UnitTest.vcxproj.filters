@@ -78,6 +78,12 @@
     <ClInclude Include="CorePch.h">
       <Filter>main</Filter>
     </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\Transaction.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
+    <ClInclude Include="07_단위_테스트_리팩토링\Repository.h">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -132,6 +138,12 @@
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
     <ClCompile Include="07_단위_테스트_리팩토링\EventDispatcher.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\Transaction.cpp">
+      <Filter>07.단위 테스트 리팩토링</Filter>
+    </ClCompile>
+    <ClCompile Include="07_단위_테스트_리팩토링\Repository.cpp">
       <Filter>07.단위 테스트 리팩토링</Filter>
     </ClCompile>
   </ItemGroup>
