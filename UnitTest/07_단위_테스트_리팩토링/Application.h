@@ -31,7 +31,15 @@ public:
 	}
 };
 
+class IBus {
+public:
+	virtual void Send(string message) abstract;
+};
+
 class IMessageBus {
+protected:
+	IBus* _bus;
+
 public:
 	virtual void SendEmailChangedMessage(int, std::string) abstract;
 };
@@ -43,7 +51,7 @@ public:
 
 class MessageBus : public IMessageBus {
 public:
-	virtual void SendEmailChangedMessage(int, std::string) override {}
+	virtual void SendEmailChangedMessage(int userId, std::string emailAddress);
 };
 
 class Logger : public ILogger, public Singleton<Logger> {

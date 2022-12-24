@@ -36,6 +36,29 @@ TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) 
 	auto companyData = db->GetCompany();
 	Company companyFromDB = Company::CreateCompany(std::get<0>(companyData), std::get<1>(companyData));
 	ASSERT_EQ(0, companyFromDB._numberOfEmployees);
+}
 
-	EventHandler::Clear();
+TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로_스파이) {
+	class BusSpy : public IBus {
+	private:
+		vector<string> _sentMessages;
+
+	public:
+		void Send(string message) {
+			_sentMessages.push_back(message);
+		}
+
+		BusSpy& ShouldSendNumberOfMessages(int number) {
+			int msgCount = (int)_sentMessages.size();
+			// ASSERT_EQ(msgCount, number)
+			return *this;
+		}
+
+		BusSpy& WithEmailSendMessage(int userId, string newEmail) {
+			// ASSERT_EQ("~", ); 메시지 검증
+			return *this;
+		}
+	};
+
+	ASSERT_EQ(1, 1);
 }
