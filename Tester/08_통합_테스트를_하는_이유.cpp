@@ -25,7 +25,7 @@ TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로) 
 	EXPECT_CALL(*messageBusMock, SendEmailChangedMessage(insertUser._userId, "new@gmail.com")).Times(1);
 
 	// when
-	bool isSuccess = sut.ChangeEmailV3(insertUser._userId, "new@gmail.com");
+	sut.ChangeEmailV4(insertUser._userId, "new@gmail.com");
 
 	// then
 	auto userData = db->GetUserById(insertUser._userId);
