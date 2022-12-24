@@ -58,9 +58,3 @@ public:
 		return *this;
 	}
 };
-
-
-TEST(TestUserController, 통합_테스트_이메일_변경_사내도메인에서_외부도메인으로_스파이) {
-
-	ASSERT_EQ(1, 1);
-}
