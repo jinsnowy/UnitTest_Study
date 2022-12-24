@@ -28,3 +28,8 @@ void Logger::Log(string msg)
 {
 	std::cout << msg << endl;
 }
+
+void MessageBus::SendEmailChangedMessage(int userId, std::string emailAddress)
+{
+	_bus->Send(Format("user id %d changed email address to %s", userId, emailAddress.c_str()));
+}
